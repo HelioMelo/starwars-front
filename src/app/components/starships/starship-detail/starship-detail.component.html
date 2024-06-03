@@ -1,0 +1,79 @@
+<div class="container">
+
+  <div class="card rounded shadow-sm">
+    <img src="../assets/star-wars-battlefront.jpg" class="card-img-top" alt="...">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <div class="p-3">
+        <div class="form-row d-flex justify-content-between">
+          <div class="form-group col-md-1">
+            <label>Id:</label>
+            <input type="text" class="form-control" [ngClass]="(f.id)" formControlName="id">
+          </div>
+          <div class="form-group col-md-11">
+            <label>Name:</label>
+            <input type="text" class="form-control" [ngClass]="cssValidator(f.name)" formControlName="name"
+              placeholder="Enter your Name" [(ngModel)]="starship.name">
+            <div *ngIf="f.name.errors?.required" class="invalid-feedback">
+              Name is mandatory!
+            </div>
+            <div *ngIf="f.name.errors?.minlength" class="invalid-feedback">
+              Name must be at least 4 characters long!
+            </div>
+            <div *ngIf="f.name.errors?.maxlength" class="invalid-feedback">
+              Name must have a maximum of 50 characters!
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row d-flex justify-content-between mt-3 mb-4">
+
+          <div class="form-group col-md-3">
+            <label>Size:</label>
+            <input type="number" class="form-control" [ngClass]="cssValidator(f.size)" formControlName="size"
+              placeholder="Size" [(ngModel)]="starship.size">
+            <div *ngIf="f.size.errors?.required && f.size.touched" class="invalid-feedback">
+              Size is mandatory!
+            </div>
+            <div *ngIf="f.size.errors?.max && f.size.touched" class="invalid-feedback">
+              Maximum size is 400!
+            </div>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Passengers:</label>
+            <input type="number" class="form-control" [ngClass]="cssValidator(f.passengers)" formControlName="passengers"
+              placeholder="Passengers" [(ngModel)]="starship.passengers">
+            <div *ngIf="f.passengers.errors?.required && f.passengers.touched" class="invalid-feedback">
+              Passenger is mandatory!
+            </div>
+            <div *ngIf="f.passengers.errors?.max && f.passengers.touched" class="invalid-feedback">
+              Maximum quantity is 2.000!
+            </div>
+          </div>
+
+        </div>
+
+        <div class="card-footer">
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-outline-secondary mr-auto border" (click)="resetForm()">
+              Cancel Change
+            </button>
+            <button class="btn btn-primary" [disabled]="!form.valid" (click)="saveStarship(template)">
+              Save Nave
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Want to add a new starship?</p>
+    <button type="button" class="btn btn-default" (click)="confirm()">Yes</button>
+    <button type="button" class="btn btn-primary" routerLink="/starships" (click)="decline()">No</button>
+  </div>
+</ng-template>

@@ -1,0 +1,25 @@
+<nav class="toolbar" role="banner" id="topo">
+    <div>
+      <a routerLink="/home">
+        <img width="80" alt="Logo Star Wars" src="../assets/StarWarsLogo.png" />
+      </a>
+      <span>{{ title }}</span>
+    </div>
+
+    <div id="navitens">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" [routerLinkActive]="'selected'"><i
+              class="fas fa-home mr-2"></i>Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/starships" [routerLinkActive]="'selected'">
+            <i class="fab fa-galactic-senate mr-2"></i>Starships</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/pilots" [routerLinkActive]="'selected'"><i
+              class="fab fa-jedi-order mr-2"></i>Pilots</a>
+        </li>
+      </ul>
+    </div>
+</nav>

@@ -1,0 +1,19 @@
+#details {
+  color: #EEE;
+  background-color: #1F2738;
+  border: none !important;
+}
+
+h5:hover, li:hover {
+  color: #facc00;
+}
+
+li {
+  color: #EEE;
+  background-color: #1F2738;
+}
+
+.card-title, .list-group-item {
+  display: flex;
+  justify-content: center;
+}

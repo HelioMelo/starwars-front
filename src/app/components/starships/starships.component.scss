@@ -1,0 +1,62 @@
+#starships {
+  margin: 100px auto 5px;
+}
+
+.card-deck {
+  display: flex;
+}
+
+.card {
+  border: 2px solid #1F2738 !important;
+}
+
+.card:hover {
+  border: 2px solid #facc00 !important;
+}
+
+.btn {
+  color:#1F2738;
+  background-color: #EEEEEE !important;
+  border: #EEEEEE !important;
+}
+
+.btn:hover {
+  color:#EEEEEE;
+  background-color: #facc00 !important;
+  border: #facc00 !important;
+}
+
+.btn:focus {
+  color:#EEEEEE;
+  background-color: #facc00 !important;
+  border: #facc00 !important;
+}
+
+.card-footer {
+  color: #EEE !important;
+  background-color: #1F2738;
+  text-align: center;
+}
+
+.card-footer:hover {
+  color: #1F2738 !important;
+  background-color: #facc00;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  font-size: 60px;
+  color: #EEE;
+  font-weight: 600;
+  text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+.card {
+  margin-right: 15px;
+  margin-top: 15px;
+}
+
+#search {
+  border-radius: 20px;
+}

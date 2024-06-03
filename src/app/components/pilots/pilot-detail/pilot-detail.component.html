@@ -1,0 +1,88 @@
+<div class="container">
+
+  <div class="card rounded shadow-sm">
+    <img src="../assets/starwars.jpg" class="card-img-top" alt="...">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <div class="p-3">
+        <div class="form-row d-flex justify-content-between">
+          <div class="form-group col-md-1">
+            <label>Id:</label>
+            <input type="text" class="form-control" [ngClass]="(f.id)" formControlName="id">
+          </div>
+          <div class="form-group col-md-11">
+            <label>Name:</label>
+            <input type="text" class="form-control" [ngClass]="cssValidator(f.name)" formControlName="name"
+              placeholder="Enter your Name" [(ngModel)]="pilot.name">
+            <div *ngIf="f.name.errors?.required" class="invalid-feedback">
+              Name is mandatory!
+            </div>
+            <div *ngIf="f.name.errors?.minlength" class="invalid-feedback">
+              Name must be at least 4 characters long!
+            </div>
+            <div *ngIf="f.name.errors?.maxlength" class="invalid-feedback">
+              Name must have a maximum of 50 characters!
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row d-flex justify-content-between mt-3 mb-4">
+          <div class="form-group col-md-4">
+            <label>Gender:</label>
+            <input type="text" class="form-control" [ngClass]="cssValidator(f.gender)" formControlName="gender"
+              placeholder="Gender" [(ngModel)]="pilot.gender">
+            <div *ngIf="f.gender.errors?.required && f.gender.touched" class="invalid-feedback">
+              Gender is mandatory!
+            </div>
+          </div>
+
+
+          <div class="form-group col-md-2">
+            <label>Age:</label>
+            <input type="number" class="form-control" [ngClass]="cssValidator(f.age)" formControlName="age"
+              placeholder="Age" [(ngModel)]="pilot.age">
+            <div *ngIf="f.age.errors?.required && f.age.touched" class="invalid-feedback">
+              Age is mandatory!
+            </div>
+            <div *ngIf="f.age.errors?.max && f.age.touched" class="invalid-feedback">
+              Age must contain a maximum of 3 digits!
+            </div>
+          </div>
+
+          <div class="form-group col-md-2">
+            <label>Height:</label>
+            <input type="number" class="form-control" [ngClass]="cssValidator(f.height)" formControlName="height"
+              placeholder="Height" [(ngModel)]="pilot.height">
+            <div *ngIf="f.height.errors?.required && f.height.touched" class="invalid-feedback">
+              Height is mandatory!
+            </div>
+            <div *ngIf="f.height.errors?.max && f.height.touched" class="invalid-feedback">
+              Height must contain a maximum of 4 digits!
+            </div>
+          </div>
+
+        </div>
+
+        <div class="card-footer">
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-outline-secondary mr-auto border" (click)="resetForm()">
+              Cancel Change
+            </button>
+            <button class="btn btn-primary" [disabled]="!form.valid" (click)="savePilot(template)">
+              Save Piloto
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+<ng-template #template>
+  <div class="modal-body text-center">
+    <p>Want to add a new Pilot?</p>
+    <button type="button" class="btn btn-default" (click)="confirm()">Yes</button>
+    <button type="button" class="btn btn-primary" routerLink="/pilots" (click)="decline()">No</button>
+  </div>
+</ng-template>

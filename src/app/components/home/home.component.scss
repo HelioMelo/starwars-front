@@ -1,0 +1,100 @@
+
+#starwars {
+  height: 220px;
+  width: 360px;
+}
+
+.container {
+  color: #1F2738;
+  font-size: 22px;
+  display: flex;
+  margin: 82px auto 32px;
+  padding: 0 16px;
+  max-width: 960px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  all: unset;
+  border-radius: 40px;
+  border: 3px solid #1F2738;
+  background-color: #facc00;
+  height: 40px;
+  width: 200px;
+  margin: 0 8px 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  line-height: 24px;
+}
+
+.card:hover {
+  color: #EEE;
+  border: 3px solid #EEE;
+  background-color: #000;
+
+}
+
+.card-container .card:not(:last-child) {
+  margin-right: 0;
+}
+
+.card.card-small {
+  height: 16px;
+  width: 168px;
+}
+
+.card-container .card:not(.highlight-card) {
+  cursor: pointer;
+}
+
+.card-container .card:not(.highlight-card):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+}
+
+.card-container .card:not(.highlight-card):hover .material-icons path {
+  fill: #1F2738;
+}
+
+a,
+a:visited,
+a:hover {
+  color: #1F2738;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #facc00;
+}
+
+p {
+  color:#EEEEEE;
+  margin-top: 25px;
+  font-weight: 400;
+  text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+@media screen and (max-width: 435px) {
+
+  #starwars {
+    height: 180px;
+    width: 300px;
+  }
+}
+
+
+@media screen and (max-width: 320px) {
+
+  #starwars {
+    height: 180px;
+    width: 300px;
+  }
+
+  }
+
+
